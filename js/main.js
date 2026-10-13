@@ -10,6 +10,15 @@ const closeDialogButton = document.getElementById('close-order-dialog');
 // Получаем скрытое поле, в которое будет записан выбранный товар.
 const selectedProductInput = document.getElementById('selected-product');
 
+// Получаем кнопку открытия формы обратной связи.
+const openDialogButton = document.querySelector('[data-open-order-dialog]');
+
+if (openDialogButton) {
+  openDialogButton.addEventListener('click', () => {
+    orderDialog.showModal();
+  });
+}
+
 // Перебираем все кнопки «Заказать».
 orderButtons.forEach((button) => {
   button.addEventListener('click', () => {
