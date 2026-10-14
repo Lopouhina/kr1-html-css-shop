@@ -6,6 +6,7 @@
   <meta name="description" content="Каталог товаров учебного интернет-магазина.">
   <title>Каталог товаров — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body id="top">
   <header class="site-header">
@@ -144,9 +145,12 @@
 
             <p class="product-card__price">Цена: 1000 руб.</p>
 
-            <a class="button button--primary" href="index.html#popular">
-              Подробнее
-            </a>
+             <button class="button button--primary product-card__button"
+                    type="button"
+                    data-product="Тапочки"
+                    data-open-order-dialog>
+              Заказать
+            </button>
           </article>
 
           <article class="product-card">
@@ -165,9 +169,12 @@
 
             <p class="product-card__price">Цена: 500 руб.</p>
 
-            <a class="button button--primary" href="index.html#popular">
-              Подробнее
-            </a>
+             <button class="button button--primary product-card__button"
+                    type="button"
+                    data-product="Кружка"
+                    data-open-order-dialog>
+              Заказать
+            </button>
           </article>
 
           <article class="product-card">
@@ -187,14 +194,74 @@
 
             <p class="product-card__price">Цена: 2500 руб.</p>
 
-            <a class="button button--primary" href="index.html#popular">
-              Подробнее
-            </a>
+             <button class="button button--primary product-card__button"
+                    type="button"
+                    data-product="Настольная лампа"
+                    data-open-order-dialog>
+              Заказать
+            </button>
           </article>
 
         </div>
       </section>
     </section>
+
+    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+      <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+
+      
+      <form class="order-form" id="order-form" action="#" method="post" novalidate>
+        <input type="hidden" id="selected-product" name="product">
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-name">Имя</label>
+          <input class="order-form__input" type="text" id="order-name" name="name"  placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-email">E-mail</label>
+          <input class="order-form__input" type="email" id="order-email" name="email" placeholder="example@mail.ru" autocomplete="email" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-phone">Телефон</label>
+          <input class="order-form__input" type="tel" id="order-phone" name="phone" placeholder="+7 (900) 000-00-00" pattern="\+7 \([0-9]{3}\) [0-9]{3}-[0-9]{2}-[0-9]{2}" required>
+          <small>Формат: +7 (900) 000-00-00</small>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-date">Дата связи</label>
+          <input class="order-form__input" type="date" id="order-date" name="date">
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-topic">Тема обращения</label>
+          <select class="order-form__input" id="order-topic" name="topic" required>
+            <option value="">Выберите тему</option>
+            <option value="product">Заказ товара</option>
+            <option value="consultation">Консультация</option>
+            <option value="delivery">Доставка</option>
+          </select>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-comment">Комментарий</label>
+          <textarea class="order-form__input" id="order-comment" name="comment" rows="4" placeholder="Укажите дополнительную информацию"></textarea>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-agreement">
+            <input class="order-form__input order-form__input--checkbox" type="checkbox" id="order-agreement" name="agreement" required>
+            Согласен на обработку персональных данных
+          </label>
+        </div>
+
+        <div class="order-form__actions">
+          <button class="button button--secondary" id="close-order-dialog" type="button">Закрыть</button>
+          <button class="button button--primary" type="submit">Отправить заявку</button>
+        </div>
+      </form>
+    </dialog>
   </main>
 
   <footer class="site-footer">

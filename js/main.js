@@ -72,8 +72,11 @@ orderForm.addEventListener('submit', (event) => {
     return;
   }
 
+
   // Показываем сообщение об успешной отправке.
+if (successMessage) {
   successMessage.hidden = false;
+}
 
   // Очищаем форму.
   orderForm.reset();
