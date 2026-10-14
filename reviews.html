@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Отзывы покупателей учебного интернет-магазина.">
+  <title>Отзывы — Учебный интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="reviews.html">Отзывы</a>
+        </li>
+
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current">Отзывы</span>
+    </nav>
+
+    <section class="section reviews" id="reviews">
+      <h1 class="section__title">Оставить отзыв</h1>
+
+      <p class="section__description">
+        Поделитесь своим мнением о наших товарах!
+        Нам важно знать, что вы думаете.
+      </p>
+
+      <form class="reviews__form" action="#review-success" method="get">
+        <div class="reviews__field">
+          <label class="reviews__label" for="review-name">
+            Ваше имя
+          </label>
+          <input
+            class="reviews__input"
+            type="text"
+            id="review-name"
+            name="name"
+            placeholder="Введите ваше имя"
+            minlength="2"
+            required
+          >
+        </div>
+
+        <div class="reviews__field">
+          <label class="reviews__label" for="review-product">
+            Товар
+          </label>
+          <select
+            class="reviews__input"
+            id="review-product"
+            name="product"
+            required
+          >
+            <option value="">Выберите товар</option>
+            <option value="slippers">Тапочки</option>
+            <option value="mug">Кружка</option>
+            <option value="toy">Настольная лампа</option>
+          </select>
+        </div>
+
+        <div class="reviews__field">
+          <label class="reviews__label" for="review-rating">
+            Оценка
+          </label>
+          <select
+            class="reviews__input"
+            id="review-rating"
+            name="rating"
+            required
+          >
+            <option value="">Выберите оценку</option>
+            <option value="5">★★★★★ - Отлично</option>
+            <option value="4">★★★★☆ - Хорошо</option>
+            <option value="3">★★★☆☆ - Нормально</option>
+            <option value="2">★★☆☆☆ - Плохо</option>
+            <option value="1">★☆☆☆☆ - Очень плохо</option>
+          </select>
+        </div>
+
+        <div class="reviews__field">
+          <label class="reviews__label" for="review-text">
+            Ваш отзыв
+          </label>
+          <textarea
+            class="reviews__input reviews__input--textarea"
+            id="review-text"
+            name="review"
+            rows="5"
+            placeholder="Напишите ваше мнение о товаре"
+          ></textarea>
+        </div>
+
+        <button class="button button--primary"
+        type="submit">
+          Отправить отзыв
+        </button>
+      </form>
+
+      <p class="reviews__success" id="review-success">
+        Спасибо за ваш отзыв! Ваш отзыв скоро будет опубликован.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+
+  <a class="back-to-top" href="#top" aria-label="Вернуться наверх">↑</a>
+</body>
+</html>
