@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Обратная связь с учебным интернет-магазином.">
+  <title>Обратная связь — Учебный интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="reviews.html">Отзывы</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="feedback.html">Обратная связь</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current">Обратная связь</span>
+    </nav>
+
+    <section class="section feedback">
+      <h1 class="section__title">Обратная связь</h1>
+
+      <p class="section__description">
+        Добро пожаловать на страницу обратной связи нашего интернет-магазина!
+        Мы всегда рады общению с покупателями и готовы помочь вам
+        с любыми вопросами, связанными с нашими товарами.
+      </p>
+
+      <p class="feedback__text">
+        Если вы хотите узнать больше о понравившемся товаре,
+        уточнить его характеристики или получить помощь
+        с оформлением заказа, вы можете связаться с нами
+        через специальную форму обратной связи.
+      </p>
+
+      <h2 class="feedback__title">По каким вопросам можно обратиться?</h2>
+
+      <p class="feedback__text">
+        Наша команда постарается помочь вам в следующих ситуациях:
+      </p>
+
+      <ul class="feedback__list">
+        <li>Консультация по ассортименту товаров.</li>
+        <li>Уточнение стоимости и наличия товаров.</li>
+        <li>Вопросы по оформлению и изменению заказа.</li>
+        <li>Информация о доставке и её условиях.</li>
+        <li>Предложения по улучшению работы магазина.</li>
+        <li>Другие вопросы, связанные с покупками.</li>
+      </ul>
+
+      <h2 class="feedback__title">Как отправить сообщение?</h2>
+
+      <p class="feedback__text">
+        Для отправки обращения нажмите кнопку «Написать нам»,
+        расположенную ниже. В открывшемся окне укажите
+        своё имя, адрес электронной почты, номер телефона,
+        удобную дату для связи и выберите тему обращения.
+      </p>
+
+      <p class="feedback__text">
+        В поле «Сообщение» подробно опишите свой вопрос
+        или предложение. Перед отправкой убедитесь,
+        что контактные данные указаны правильно.
+      </p>
+
+      <h2 class="feedback__title">Когда ожидать ответа?</h2>
+
+      <p class="feedback__text">
+        Мы стараемся рассматривать обращения покупателей
+        как можно быстрее. Время ответа зависит от
+        количества поступивших сообщений и сложности вопроса.
+      </p>
+
+      <p class="feedback__text">
+        Если ваш вопрос касается конкретного товара,
+        рекомендуем указать его название в сообщении.
+        Это поможет быстрее разобраться в ситуации.
+      </p>
+
+      <h2 class="feedback__title">Свяжитесь с нами</h2>
+
+      <p class="feedback__text">
+        Нам важно мнение каждого покупателя.
+        Ваши вопросы, замечания и предложения помогают
+        делать наш магазин удобнее и интереснее.
+      </p>
+
+      <p class="feedback__text">
+        Заполните форму обратной связи, и мы постараемся
+        помочь вам!
+      </p>
+
+      <button class="button button--primary"
+              type="button"
+              data-open-order-dialog>
+        Написать нам
+      </button>
+    </section>
+
+    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+      <h2 class="order-dialog__title" id="order-dialog-title">Написать сообщение</h2>
+
+      <form class="order-form" id="order-form" action="#" method="post">
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-name">Имя</label>
+          <input class="order-form__input" type="text" id="order-name"
+                 name="name" placeholder="Введите ваше имя"
+                 minlength="2" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-email">E-mail</label>
+          <input class="order-form__input" type="email" id="order-email"
+                 name="email" placeholder="example@mail.ru" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-phone">Телефон</label>
+          <input class="order-form__input" type="tel" id="order-phone"
+                 name="phone" placeholder="+7 (900) 000-00-00"
+                 pattern="\+7 \([0-9]{3}\) [0-9]{3}-[0-9]{2}-[0-9]{2}"
+                 required>
+          <small>Формат: +7 (900) 000-00-00</small>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-date">Дата связи</label>
+          <input class="order-form__input" type="date"
+                 id="order-date" name="date" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-topic">Тема обращения</label>
+          <select class="order-form__input" id="order-topic" name="topic" required>
+            <option value="">Выберите тему</option>
+            <option value="product">Вопрос о товаре</option>
+            <option value="consultation">Консультация</option>
+            <option value="delivery">Доставка</option>
+            <option value="other">Другое</option>
+          </select>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-comment">Сообщение</label>
+          <textarea class="order-form__input" id="order-comment"
+                    name="comment" rows="4"
+                    placeholder="Напишите ваше сообщение"
+                    required></textarea>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-agreement">
+            <input class="order-form__input order-form__input--checkbox"
+                   type="checkbox" id="order-agreement"
+                   name="agreement" required>
+            Согласен на обработку персональных данных
+          </label>
+        </div>
+
+        <div class="order-form__actions">
+          <button class="button button--secondary"
+                  id="close-order-dialog" type="button">
+            Закрыть
+          </button>
+          <button class="button button--primary" type="submit">
+            Отправить сообщение
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <p class="success-message" id="success-message" hidden>
+      Ваше сообщение успешно отправлено!
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__text">
+      &copy; 2026 Учебный проект. Все права защищены.
+    </p>
+    <p class="site-footer__text">
+      Дисциплина: Фронтенд и бэкенд разработка
+    </p>
+  </footer>
+
+  <a class="back-to-top" href="#top" aria-label="Вернуться наверх">↑</a>
+</body>
+</html>

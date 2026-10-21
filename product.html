@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Подробная информация о товаре или услуге.">
+  <title>Подробнее о товаре — Учебный интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="reviews.html">Отзывы</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="feedback.html">Обратная связь</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
+      <span class="breadcrumbs__current" id="detail-crumb">Товар</span>
+    </nav>
+    <article class="product-detail" id="product-detail" hidden>
+      <div class="product-detail__media">
+        <img class="product-detail__image" id="detail-image" alt="" hidden>
+      </div>
+      <div class="product-detail__content">
+        <h1 class="product-detail__title" id="detail-title"></h1>
+        <p class="product-detail__description" id="detail-description"></p>
+        <p class="product-detail__price" id="detail-price"></p>
+        <div class="product-detail__actions">
+          <button class="button button--primary product-card__button" id="detail-order" type="button" data-open-order-dialog>Заказать</button>
+          <a class="button button--secondary" href="catalog.html">Вернуться в каталог</a>
+        </div>
+      </div>
+    </article>
+    <p id="detail-not-found" hidden>Товар не найден. <a href="catalog.html">Вернуться в каталог</a>.</p>
+<dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+      <h2 class="order-dialog__title" id="order-dialog-title">Оформление заказа</h2>
+
+      <form class="order-form" id="order-form" action="#" method="post" novalidate>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-product">Товар</label>
+          <input class="order-form__input" type="text" id="order-product" name="product" readonly>
+        </div>
+
+        <div class="order-form__field" id="order-size-field" hidden>
+          <label class="order-form__label" for="order-size">Размер</label>
+          <select class="order-form__input" id="order-size" name="size">
+            <option value="">Выберите размер</option>
+            <option value="36-37">36–37</option>
+            <option value="38-39">38–39</option>
+            <option value="40-41">40–41</option>
+            <option value="42-43">42–43</option>
+          </select>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-quantity">Количество</label>
+          <input class="order-form__input" type="number" id="order-quantity" name="quantity" min="1" value="1" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-delivery">Способ получения</label>
+          <select class="order-form__input" id="order-delivery" name="delivery" required>
+            <option value="pickup">Самовывоз</option>
+            <option value="courier">Доставка</option>
+          </select>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-address" id="order-address-label">Пункт самовывоза</label>
+          <input class="order-form__input" type="text" id="order-address" name="address" placeholder="Укажите удобный пункт выдачи" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-name">Имя</label>
+          <input class="order-form__input" type="text" id="order-name" name="name" placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-phone">Телефон</label>
+          <input class="order-form__input" type="tel" id="order-phone" name="phone" placeholder="+7 (900) 000-00-00" pattern="\+7 \([0-9]{3}\) [0-9]{3}-[0-9]{2}-[0-9]{2}" required>
+          <small>Формат: +7 (900) 000-00-00</small>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-email">E-mail</label>
+          <input class="order-form__input" type="email" id="order-email" name="email" placeholder="example@mail.ru" autocomplete="email" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-comment">Комментарий</label>
+          <textarea class="order-form__input" id="order-comment" name="comment" rows="3" placeholder="Дополнительные пожелания"></textarea>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-agreement">
+            <input class="order-form__input order-form__input--checkbox" type="checkbox" id="order-agreement" name="agreement" required>
+            Согласен на обработку персональных данных
+          </label>
+        </div>
+
+        <div class="order-form__actions">
+          <button class="button button--secondary" id="close-order-dialog" type="button">Закрыть</button>
+          <button class="button button--primary" type="submit">Оформить заказ</button>
+        </div>
+      </form>
+    </dialog>
+
+    <p class="success-message" id="success-message" hidden>Заказ успешно оформлен!</p>
+  </main>
+  <footer class="site-footer">
+    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="Вернуться наверх">↑</a>
+  <script id="product-data" type="application/json">[{"id": "item-1", "name": "Тапочки", "description": "Мягкие и удобные домашние тапочки голубого цвета подойдут для ежедневного использования. Они помогут создать ощущение уюта после долгого дня и станут приятным дополнением к домашнему гардеробу. Благодаря спокойному цвету тапочки легко сочетаются с домашней одеждой. Их можно выбрать для себя или подарить близкому человеку. Перед оформлением заказа выберите подходящий размер в форме заказа. Наличие нужного размера уточняйте у менеджера.", "price": "1000", "category": "clothes", "image": "https://avatars.mds.yandex.net/i?id=0eb841be1e5950ea8a3852a1ac265fa15f44554a-4987768-images-thumbs&n=13", "alt": "Тапочки голубого цвета"}, {"id": "item-2", "name": "Кружка", "description": "Кружка нежного цвета тиффани — практичная и красивая вещь для дома. Она подойдёт для утреннего чая, кофе или любимого горячего напитка во время отдыха. Приятный оттенок делает кружку заметной деталью сервировки и помогает добавить немного уюта в повседневные моменты. Такой подарок можно преподнести маме, подруге или другому близкому человеку. Кружка пригодится как дома, так и на рабочем столе. Перед покупкой можно уточнить дополнительные характеристики товара.", "price": "500", "category": "home", "image": "https://avatars.mds.yandex.net/i?id=ff619f3ecad05861130aa1f8eb98a434121f1a41-4353974-images-thumbs&n=13", "alt": "Кружка цвета тиффани"}, {"id": "item-3", "name": "Настольная лампа", "description": "Настольная лампа чёрного цвета станет практичным дополнением рабочего или учебного места. Она подойдёт для письменного стола, чтения, выполнения домашних заданий и других занятий, для которых требуется дополнительное освещение. Сдержанный дизайн позволяет сочетать лампу с разными вариантами оформления комнаты. Её можно разместить рядом с компьютером, книгами или учебными принадлежностями. Лампа также может стать полезным подарком для дома. Условия использования и характеристики освещения следует уточнять перед покупкой.", "price": "2500", "category": "home", "image": "https://avatars.mds.yandex.net/i?id=b9ecf8a312e0fb8483c9933c063f5819db5f5486-4032894-images-thumbs&n=13", "alt": "Настольная лампа черного цвета"}]</script>
+</body>
+</html>

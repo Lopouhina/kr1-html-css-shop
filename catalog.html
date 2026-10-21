@@ -34,7 +34,7 @@
             <a class="site-nav__link" href="reviews.html">Отзывы</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
+           <a class="site-nav__link" href="feedback.html">Обратная связь</a>
           </li>
         </ul>
       </nav>
@@ -50,9 +50,7 @@
     <section class="section">
       <h1 class="section__title">Каталог товаров</h1>
       <p class="section__description">
-        На этой странице представлен учебный каталог товаров.
-        В дальнейшем здесь будут добавлены фильтры, сортировка и более
-        подробные карточки.
+        Выберите товары и услуги из нашего каталога.
       </p>
     </section>
 
@@ -63,36 +61,12 @@
         <form class="catalog-filters__form" action="#" method="get">
           <fieldset class="catalog-filters__fieldset">
             <legend class="catalog-filters__legend">Категория</legend>
-
-            <label class="catalog-filters__label">
-              <input
-                class="catalog-filters__input catalog-filters__input--checkbox"
-                type="checkbox"
-                name="category"
-                value="all"
-              >
-              Все товары
-            </label>
-
-            <label class="catalog-filters__label">
-              <input
-                class="catalog-filters__input catalog-filters__input--checkbox"
-                type="checkbox"
-                name="category"
-                value="popular"
-              >
-              Популярные
-            </label>
-
-            <label class="catalog-filters__label">
-              <input
-                class="catalog-filters__input catalog-filters__input--checkbox"
-                type="checkbox"
-                name="category"
-                value="new"
-              >
-              Новинки
-            </label>
+            <div class="catalog-filters__categories" role="group" aria-label="Категории каталога">
+              <button class="button button--primary catalog-filters__category catalog-filters__category--active" type="button" data-category="all" aria-pressed="true">Все</button>
+              <button class="button button--secondary catalog-filters__category" type="button" data-category="clothes" aria-pressed="false">Одежда и аксессуары</button>
+              <button class="button button--secondary catalog-filters__category" type="button" data-category="home" aria-pressed="false">Для дома</button>
+              <button class="button button--secondary catalog-filters__category" type="button" data-category="services" aria-pressed="false">Услуги</button>
+            </div>
           </fieldset>
 
           <fieldset class="catalog-filters__fieldset">
@@ -129,13 +103,13 @@
 
         <div class="products-grid">
 
-          <article class="product-card">
+          <article class="product-card" data-category="clothes" data-price="1000">
             <h3 class="product-card__title">Тапочки</h3>
 
             <img
               class="product-card__image"
               src="https://avatars.mds.yandex.net/i?id=0eb841be1e5950ea8a3852a1ac265fa15f44554a-4987768-images-thumbs&n=13"
-              alt="Тапочки в виде миньонов"
+              alt="Тапочки голубого цвета"
             >
 
             <p class="product-card__description">
@@ -145,21 +119,24 @@
 
             <p class="product-card__price">Цена: 1000 руб.</p>
 
-             <button class="button button--primary product-card__button"
+             <div class="product-card__actions">
+              <button class="button button--primary product-card__button"
                     type="button"
                     data-product="Тапочки"
                     data-open-order-dialog>
-              Заказать
-            </button>
+                Заказать
+              </button>
+              <a class="button button--secondary" href="product.html?id=item-1">Подробнее</a>
+            </div>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" data-category="home" data-price="500">
             <h3 class="product-card__title">Кружка</h3>
 
             <img
               class="product-card__image"
               src="https://avatars.mds.yandex.net/i?id=ff619f3ecad05861130aa1f8eb98a434121f1a41-4353974-images-thumbs&n=13"
-              alt="Кружка с миньоном"
+              alt="Кружка цвета тиффани"
             >
 
             <p class="product-card__description">
@@ -169,21 +146,24 @@
 
             <p class="product-card__price">Цена: 500 руб.</p>
 
-             <button class="button button--primary product-card__button"
+             <div class="product-card__actions">
+              <button class="button button--primary product-card__button"
                     type="button"
                     data-product="Кружка"
                     data-open-order-dialog>
               Заказать
             </button>
+              <a class="button button--secondary" href="product.html?id=item-2">Подробнее</a>
+            </div>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" data-category="home" data-price="2500">
             <h3 class="product-card__title">Настольная лампа</h3>
 
             <img
               class="product-card__image"
               src="https://avatars.mds.yandex.net/i?id=b9ecf8a312e0fb8483c9933c063f5819db5f5486-4032894-images-thumbs&n=13"
-              alt="Игрушка в виде миньона"
+              alt="Настольная лампа черного цвета"
             >
 
             <p class="product-card__description">
@@ -194,33 +174,206 @@
 
             <p class="product-card__price">Цена: 2500 руб.</p>
 
-             <button class="button button--primary product-card__button"
+             <div class="product-card__actions">
+              <button class="button button--primary product-card__button"
                     type="button"
                     data-product="Настольная лампа"
                     data-open-order-dialog>
               Заказать
             </button>
+              <a class="button button--secondary" href="product.html?id=item-3">Подробнее</a>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="clothes" data-price="1200">
+            <h3 class="product-card__title">Футболка с принтом. АМ-НЯМ</h3>
+            
+             <img
+              class="product-card__image"
+              src="https://avatars.mds.yandex.net/i?id=2de9c64e0d8e275eff987efafbdbba641505a0e1-4428301-images-thumbs&n=13"
+              alt="Футболка с ярким принтом. АМ-НЯМ"
+            >
+
+            <p class="product-card__description">Футболка с ярким принтом.</p>
+            <p class="product-card__price">Цена: 1200 руб.</p>
+            <div class="product-card__actions">
+              <button class="button button--primary product-card__button" 
+              type="button" 
+              data-product="Футболка с принтом" 
+              data-open-order-dialog>
+              Заказать</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="clothes" data-price="1800">
+            <h3 class="product-card__title">Рюкзак</h3>
+            
+            <img
+              class="product-card__image"
+              src="https://avatars.mds.yandex.net/i?id=09a4a0efe1ea8e743c0bcca33ab629fb8e3efd9e-3450605-images-thumbs&n=13"
+              alt="Рюкзак черного цвета"
+            >
+            <p class="product-card__description">Удобный рюкзак на каждый день.</p>
+            <p class="product-card__price">Цена: 1800 руб.</p>
+            <div class="product-card__actions">
+              <button class="button button--primary product-card__button" 
+              type="button" 
+              data-product="Рюкзак" 
+              data-open-order-dialog>
+              Заказать</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="home" data-price="900">
+            <h3 class="product-card__title">Мягкая игрушка</h3>
+            
+             <img
+              class="product-card__image"
+              src="https://avatars.mds.yandex.net/get-mpic/15415971/2a0000019888ca95b16f9c46637df8c47d17/orig"
+              alt="Мянкая игрушка. Лис"
+            >
+
+            <p class="product-card__description">Мягкая игрушка в подарок.</p>
+            <p class="product-card__price">Цена: 900 руб.</p>
+            <div class="product-card__actions">
+              <button class="button button--primary product-card__button" 
+              type="button" 
+              data-product="Мягкая игрушка" 
+              data-open-order-dialog>
+              Заказать</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="home" data-price="250">
+            <h3 class="product-card__title">Блокнот</h3>
+
+             <img
+              class="product-card__image"
+              src="https://avatars.mds.yandex.net/get-mpic/13894603/2a00000196e325d3b7e6270fc9ca6688f6f6/orig"
+              alt="Блокнот"
+            >
+            <p class="product-card__description">Блокнот для заметок и рисунков.</p>
+            <p class="product-card__price">Цена: 250 руб.</p>
+            <div class="product-card__actions">
+              <button class="button button--primary product-card__button"
+              type="button" 
+              data-product="Блокнот" 
+              data-open-order-dialog>
+              Заказать</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="clothes" data-price="450">
+            <h3 class="product-card__title">Чехол для телефона</h3>
+
+            <img
+              class="product-card__image"
+              src="https://ogo1.ru/upload/iblock/8c3/8c36a4698a4b9e4a426479baa9c8a95e.jpeg"
+              alt="Чехол на телефон"
+            >
+            <p class="product-card__description">Чехол с весёлым дизайном.</p>
+            <p class="product-card__price">Цена: 450 руб.</p>
+            <div class="product-card__actions">
+              <button class="button button--primary product-card__button" 
+              type="button" 
+              data-product="Чехол для телефона" 
+              data-open-order-dialog>
+              Заказать</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="home" data-price="850">
+            <h3 class="product-card__title">Термокружка</h3>
+            
+            <img
+              class="product-card__image"
+              src="https://avatars.mds.yandex.net/i?id=750a60533cc70989a3b53a2983b45cbcbc6c32a5-5410274-images-thumbs&n=13"
+              alt="Термокружка розового цвета"
+            >
+            <p class="product-card__description">Кружка для горячих и холодных напитков.</p>
+            <p class="product-card__price">Цена: 850 руб.</p>
+            <div class="product-card__actions">
+              <button class="button button--primary product-card__button" 
+              type="button" 
+              data-product="Термокружка" 
+              data-open-order-dialog>Заказать</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="services" data-price="300">
+            <h3 class="product-card__title">Подарочная упаковка</h3>
+            
+            <p class="product-card__description">Красиво упакуем ваш подарок.</p>
+            <p class="product-card__price">Цена: 300 руб.</p>
+            <div class="product-card__actions">
+              <button class="button button--primary product-card__button" type="button" data-product="Подарочная упаковка" data-open-order-dialog>Заказать</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="services" data-price="500">
+            <h3 class="product-card__title">Персонализация товара</h3>
+            
+            <p class="product-card__description">Добавим индивидуальную надпись на товар.</p>
+            <p class="product-card__price">Цена: 500 руб.</p>
+            <div class="product-card__actions">
+              <button class="button button--primary product-card__button" type="button" data-product="Персонализация товара" data-open-order-dialog>Заказать</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="services" data-price="400">
+            <h3 class="product-card__title">Курьерская доставка</h3>
+            
+            <p class="product-card__description">Доставим заказ по указанному адресу.</p>
+            <p class="product-card__price">Цена: 400 руб.</p>
+            <div class="product-card__actions">
+              <button class="button button--primary product-card__button" type="button" data-product="Курьерская доставка" data-open-order-dialog>Заказать</button>
+            </div>
           </article>
 
         </div>
+        <p class="catalog-products__empty" hidden>По выбранным условиям ничего не найдено.</p>
       </section>
-    </section>
+    </section>    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+      <h2 class="order-dialog__title" id="order-dialog-title">Оформление заказа</h2>
 
-    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
-      <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
-
-      
       <form class="order-form" id="order-form" action="#" method="post" novalidate>
-        <input type="hidden" id="selected-product" name="product">
-
         <div class="order-form__field">
-          <label class="order-form__label" for="order-name">Имя</label>
-          <input class="order-form__input" type="text" id="order-name" name="name"  placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
+          <label class="order-form__label" for="order-product">Товар</label>
+          <input class="order-form__input" type="text" id="order-product" name="product" readonly>
+        </div>
+
+        <div class="order-form__field" id="order-size-field" hidden>
+          <label class="order-form__label" for="order-size">Размер</label>
+          <select class="order-form__input" id="order-size" name="size">
+            <option value="">Выберите размер</option>
+            <option value="36-37">36–37</option>
+            <option value="38-39">38–39</option>
+            <option value="40-41">40–41</option>
+            <option value="42-43">42–43</option>
+          </select>
         </div>
 
         <div class="order-form__field">
-          <label class="order-form__label" for="order-email">E-mail</label>
-          <input class="order-form__input" type="email" id="order-email" name="email" placeholder="example@mail.ru" autocomplete="email" required>
+          <label class="order-form__label" for="order-quantity">Количество</label>
+          <input class="order-form__input" type="number" id="order-quantity" name="quantity" min="1" value="1" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-delivery">Способ получения</label>
+          <select class="order-form__input" id="order-delivery" name="delivery" required>
+            <option value="pickup">Самовывоз</option>
+            <option value="courier">Доставка</option>
+          </select>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-address" id="order-address-label">Пункт самовывоза</label>
+          <input class="order-form__input" type="text" id="order-address" name="address" placeholder="Укажите удобный пункт выдачи" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-name">Имя</label>
+          <input class="order-form__input" type="text" id="order-name" name="name" placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
         </div>
 
         <div class="order-form__field">
@@ -230,23 +383,13 @@
         </div>
 
         <div class="order-form__field">
-          <label class="order-form__label" for="order-date">Дата связи</label>
-          <input class="order-form__input" type="date" id="order-date" name="date">
-        </div>
-
-        <div class="order-form__field">
-          <label class="order-form__label" for="order-topic">Тема обращения</label>
-          <select class="order-form__input" id="order-topic" name="topic" required>
-            <option value="">Выберите тему</option>
-            <option value="product">Заказ товара</option>
-            <option value="consultation">Консультация</option>
-            <option value="delivery">Доставка</option>
-          </select>
+          <label class="order-form__label" for="order-email">E-mail</label>
+          <input class="order-form__input" type="email" id="order-email" name="email" placeholder="example@mail.ru" autocomplete="email" required>
         </div>
 
         <div class="order-form__field">
           <label class="order-form__label" for="order-comment">Комментарий</label>
-          <textarea class="order-form__input" id="order-comment" name="comment" rows="4" placeholder="Укажите дополнительную информацию"></textarea>
+          <textarea class="order-form__input" id="order-comment" name="comment" rows="3" placeholder="Дополнительные пожелания"></textarea>
         </div>
 
         <div class="order-form__field">
@@ -258,10 +401,12 @@
 
         <div class="order-form__actions">
           <button class="button button--secondary" id="close-order-dialog" type="button">Закрыть</button>
-          <button class="button button--primary" type="submit">Отправить заявку</button>
+          <button class="button button--primary" type="submit">Оформить заказ</button>
         </div>
       </form>
     </dialog>
+
+    <p class="success-message" id="success-message" hidden>Заказ успешно оформлен!</p>
   </main>
 
   <footer class="site-footer">

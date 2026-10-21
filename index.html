@@ -34,7 +34,7 @@
             <a class="site-nav__link" href="reviews.html">Отзывы</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="#contacts">Обратная связь</a>
+            <a class="site-nav__link" href="feedback.html">Обратная связь</a>
           </li>
         </ul>
       </nav>
@@ -69,7 +69,7 @@
             <img
               class="product-card__image"
               src="https://avatars.mds.yandex.net/i?id=0eb841be1e5950ea8a3852a1ac265fa15f44554a-4987768-images-thumbs&n=13"
-              alt="Тапочки в виде миньонов"
+              alt="Мягкие тапочки голубого цвета"
             >
 
             <p class="product-card__description">
@@ -79,12 +79,15 @@
 
             <p class="product-card__price">Цена: 1000 руб.</p>
 
-            <button class="button button--primary product-card__button"
+            <div class="product-card__actions">
+              <button class="button button--primary product-card__button"
                     type="button"
                     data-product="Тапочки"
                     data-open-order-dialog>
               Заказать
             </button>
+              <a class="button button--secondary" href="product.html?id=item-1">Подробнее</a>
+            </div>
           </article>
 
           <article class="product-card">
@@ -93,7 +96,7 @@
             <img
               class="product-card__image"
               src="https://avatars.mds.yandex.net/i?id=ff619f3ecad05861130aa1f8eb98a434121f1a41-4353974-images-thumbs&n=13"
-              alt="Кружка с миньоном"
+              alt="Кружка цвета тиффани"
             >
 
             <p class="product-card__description">
@@ -103,12 +106,15 @@
 
             <p class="product-card__price">Цена: 500 руб.</p>
 
-            <button class="button button--primary product-card__button"
+            <div class="product-card__actions">
+              <button class="button button--primary product-card__button"
                     type="button"
                     data-product="Кружка"
                     data-open-order-dialog>
               Заказать
             </button>
+              <a class="button button--secondary" href="product.html?id=item-2">Подробнее</a>
+            </div>
           </article>
 
           <article class="product-card">
@@ -117,7 +123,7 @@
             <img
               class="product-card__image"
               src="https://avatars.mds.yandex.net/i?id=b9ecf8a312e0fb8483c9933c063f5819db5f5486-4032894-images-thumbs&n=13"
-              alt="Игрушка в виде миньона"
+              alt="Настольная лампа черного цвета"
             >
 
             <p class="product-card__description">
@@ -128,12 +134,15 @@
 
             <p class="product-card__price">Цена: 2500 руб.</p>
 
-             <button class="button button--primary product-card__button"
+             <div class="product-card__actions">
+              <button class="button button--primary product-card__button"
                     type="button"
                     data-product="Настольная лампа"
                     data-open-order-dialog>
               Заказать
             </button>
+              <a class="button button--secondary" href="product.html?id=item-3">Подробнее</a>
+            </div>
           </article>
       </div>
     </section>
@@ -183,33 +192,47 @@
       <p class="aside-info__text">
         Это учебный проект интернет-магазина, созданный для практических занятий.
       </p>
-    </aside>
+    </aside>    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+      <h2 class="order-dialog__title" id="order-dialog-title">Оформление заказа</h2>
 
-    <section class="section" id="contacts">
-      <h2 class="section__title">Обратная связь</h2>
-      <p class="section__description">
-        Чтобы оставить заявку, выберите товар и нажмите кнопку «Заказать».
-      </p>
-      <button class="button button--primary" type="button" data-open-order-dialog>
-        Оставить заявку
-      </button>
-    </section>
-
-    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
-      <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
-
-      
       <form class="order-form" id="order-form" action="#" method="post" novalidate>
-        <input type="hidden" id="selected-product" name="product">
-
         <div class="order-form__field">
-          <label class="order-form__label" for="order-name">Имя</label>
-          <input class="order-form__input" type="text" id="order-name" name="name"  placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
+          <label class="order-form__label" for="order-product">Товар</label>
+          <input class="order-form__input" type="text" id="order-product" name="product" readonly>
+        </div>
+
+        <div class="order-form__field" id="order-size-field" hidden>
+          <label class="order-form__label" for="order-size">Размер</label>
+          <select class="order-form__input" id="order-size" name="size">
+            <option value="">Выберите размер</option>
+            <option value="36-37">36–37</option>
+            <option value="38-39">38–39</option>
+            <option value="40-41">40–41</option>
+            <option value="42-43">42–43</option>
+          </select>
         </div>
 
         <div class="order-form__field">
-          <label class="order-form__label" for="order-email">E-mail</label>
-          <input class="order-form__input" type="email" id="order-email" name="email" placeholder="example@mail.ru" autocomplete="email" required>
+          <label class="order-form__label" for="order-quantity">Количество</label>
+          <input class="order-form__input" type="number" id="order-quantity" name="quantity" min="1" value="1" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-delivery">Способ получения</label>
+          <select class="order-form__input" id="order-delivery" name="delivery" required>
+            <option value="pickup">Самовывоз</option>
+            <option value="courier">Доставка</option>
+          </select>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-address" id="order-address-label">Пункт самовывоза</label>
+          <input class="order-form__input" type="text" id="order-address" name="address" placeholder="Укажите удобный пункт выдачи" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-name">Имя</label>
+          <input class="order-form__input" type="text" id="order-name" name="name" placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
         </div>
 
         <div class="order-form__field">
@@ -219,23 +242,13 @@
         </div>
 
         <div class="order-form__field">
-          <label class="order-form__label" for="order-date">Дата связи</label>
-          <input class="order-form__input" type="date" id="order-date" name="date">
-        </div>
-
-        <div class="order-form__field">
-          <label class="order-form__label" for="order-topic">Тема обращения</label>
-          <select class="order-form__input" id="order-topic" name="topic" required>
-            <option value="">Выберите тему</option>
-            <option value="product">Заказ товара</option>
-            <option value="consultation">Консультация</option>
-            <option value="delivery">Доставка</option>
-          </select>
+          <label class="order-form__label" for="order-email">E-mail</label>
+          <input class="order-form__input" type="email" id="order-email" name="email" placeholder="example@mail.ru" autocomplete="email" required>
         </div>
 
         <div class="order-form__field">
           <label class="order-form__label" for="order-comment">Комментарий</label>
-          <textarea class="order-form__input" id="order-comment" name="comment" rows="4" placeholder="Укажите дополнительную информацию"></textarea>
+          <textarea class="order-form__input" id="order-comment" name="comment" rows="3" placeholder="Дополнительные пожелания"></textarea>
         </div>
 
         <div class="order-form__field">
@@ -247,14 +260,12 @@
 
         <div class="order-form__actions">
           <button class="button button--secondary" id="close-order-dialog" type="button">Закрыть</button>
-          <button class="button button--primary" type="submit">Отправить заявку</button>
+          <button class="button button--primary" type="submit">Оформить заказ</button>
         </div>
       </form>
     </dialog>
 
-    <p class="success-message" id="success-message" hidden>
-      Заявка успешно отправлена!
-    </p>
+    <p class="success-message" id="success-message" hidden>Заказ успешно оформлен!</p>
   </main>
 
   <footer class="site-footer">
